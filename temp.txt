@@ -1,0 +1,15 @@
+
+
+mlx_lm.lora \
+  --model "mlx-community/gemma-3-1b-it-4bit-DWQ" \
+  --train \
+  --data "train_data.jsonl" \
+#  --val-data "validation_data.jsonl" \
+  --config "lora_config.yaml" \
+#  --out-dir "new_model"
+
+# Load the model with LoRA adapter
+model, tokenizer = load(
+  "mlx-community/Llama-3.1-8B-Instruct-3bit",
+  adapter_path="my-lora-adapters"
+)
